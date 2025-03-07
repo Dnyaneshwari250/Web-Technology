@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Travel Tour</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: #f4f4f4;
+        }
+        .register-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #007BFF;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-container">
+        <h2>Register</h2>
+        <form id="registerForm">
+            <input type="text" id="name" placeholder="Full Name" required>
+            <div class="error" id="nameError"></div>
+
+            <input type="email" id="email" placeholder="Email Address" required>
+            <div class="error" id="emailError"></div>
+
+            <input type="password" id="password" placeholder="Password (min 6 characters)" required>
+            <div class="error" id="passwordError"></div>
+
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+            <div class="error" id="confirmPasswordError"></div>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            let isValid = true;
+
+            // Reset errors
+            document.getElementById("nameError").innerText = "";
+            document.getElementById("emailError").innerText = "";
+            document.getElementById("passwordError").innerText = "";
+            document.getElementById("confirmPasswordError").innerText = "";
+
+            // Name validation
+            if (name === "") {
+                document.getElementById("nameError").innerText = "Full name is required!";
+                isValid = false;
+            }
+
+            // Email validation
+            if (!emailPattern.test(email)) {
+                document.getElementById("emailError").innerText = "Enter a valid email address!";
+                isValid = false;
+            }
+
+            // Password validation
+            if (password.length < 6) {
+                document.getElementById("passwordError").innerText = "Password must be at least 6 characters!";
+                isValid = false;
+            }
+
+            // Confirm Password validation
+            if (password !== confirmPassword) {
+                document.getElementById("confirmPasswordError").innerText = "Passwords do not match!";
+                isValid = false;
+            }
+
+            if (isValid) {
+                alert("Registration Successful!");
+                window.location.href = "calculator.html"; // Redirect to calculator page
+            }
+        });
+    </script>
+
+</body>
+</html>
