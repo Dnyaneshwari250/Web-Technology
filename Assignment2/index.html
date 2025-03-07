@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Tour - Explore the World</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background: #007BFF;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            background: #0056b3;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .hero {
+            background: url('hero.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background: #ff9800;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .destinations, .services, .contact {
+            padding: 50px;
+            text-align: center;
+        }
+        .destination-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .destination img {
+            width: 200px;
+            height: 150px;
+            border-radius: 10px;
+        }
+        .service-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .service {
+            background: #007BFF;
+            padding: 20px;
+            color: white;
+            border-radius: 5px;
+            width: 200px;
+            text-align: center;
+            margin: 10px;
+        }
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background: #0056b3;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Travel Tour</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero" id="home">
+        <h1>Explore the World with Us</h1>
+        <p>Discover amazing places at the best prices</p>
+        <a href="#destinations" class="btn">Discover Now</a>
+    </section>
+    
+    <section class="destinations" id="destinations">
+        <h2>Popular Destinations</h2>
+        <div class="destination-grid">
+            <div class="destination"> <img src="destination1.jpg" alt="Beach"><p>Maldives</p></div>
+            <div class="destination"> <img src="destination2.jpg" alt="Mountain"><p>Switzerland</p></div>
+            <div class="destination"> <img src="destination3.jpg" alt="City"><p>Paris</p></div>
+        </div>
+    </section>
+    
+    <section class="services" id="services">
+        <h2>Our Services</h2>
+        <div class="service-list">
+            <div class="service"><h3>Flight Booking</h3><p>We provide affordable flight bookings with various airlines to destinations worldwide.</p></div>
+            <div class="service"><h3>Hotel Reservation</h3><p>Book comfortable and luxurious hotels at the best prices with our easy reservation system.</p></div>
+            <div class="service"><h3>Tour Packages</h3><p>Choose from a variety of curated tour packages that cater to your preferences and budget.</p></div>
+            <div class="service"><h3>Travel Insurance</h3><p>Get comprehensive travel insurance coverage for a worry-free journey.</p></div>
+            <div class="service"><h3>Visa Assistance</h3><p>We help you with the visa application process, making international travel hassle-free.</p></div>
+            <div class="service"><h3>Car Rentals</h3><p>Rent a car for your travels and enjoy the convenience of self-driven exploration.</p></div>
+            <div class="service"><h3>Local Guides</h3><p>Connect with expert local guides who can enhance your travel experience.</p></div>
+            <div class="service"><h3>Cruise Trips</h3><p>Enjoy luxurious cruise experiences to breathtaking destinations across the globe.</p></div>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <h2>Contact Us</h2>
+        <form class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 Travel Tour. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.querySelector(".contact-form");
+    
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+    
+                const name = document.querySelector("input[name='name']").value.trim();
+                const email = document.querySelector("input[name='email']").value.trim();
+                const message = document.querySelector("textarea[name='message']").value.trim();
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+                if (name === "" || email === "" || message === "") {
+                    alert("All fields are required!");
+                    return;
+                }
+    
+                if (!emailPattern.test(email)) {
+                    alert("Please enter a valid email address!");
+                    return;
+                }
+    
+                alert("Form submitted successfully!");
+                form.submit();
+            });
+        });
+    </script>
+    
+</body>
+</html>
